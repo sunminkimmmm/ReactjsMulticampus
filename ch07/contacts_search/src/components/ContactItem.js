@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class ContactItem extends Component {
+    deleteContactItem = () => {
+        this.props.deleteContact(this.props.no);
+    }
 
     render() {
         return (
@@ -19,6 +22,12 @@ class ContactItem extends Component {
                     <span >{this.props.tel}</span><br />
                     <span className="glyphicon glyphicon-map-marker"></span>{' '}
                     <span >{this.props.address}</span><br />
+                </div>
+                <div className="col-xs-1">
+                    <div>
+                        <button className="btn btn-primary"
+                            onClick={this.deleteContactItem}>X</button>
+                    </div>
                 </div>
                 <div className="clearfix"></div>
             </li>

@@ -6,7 +6,8 @@ import ContactItem from './ContactItem';
 class ContactList extends Component {
     render() {
         let contacts = this.props.contacts.map((item)=> {
-            return <ContactItem key={item.no} {...item} />
+            return <ContactItem key={item.no} {...item}
+            deleteContact={this.props.deleteContact} />
         })
 
         return (
@@ -20,7 +21,8 @@ class ContactList extends Component {
 }
 
 ContactList.propTypes = {
-    contacts : PropTypes.arrayOf(PropTypes.object)
+    contacts : PropTypes.arrayOf(PropTypes.object),
+    deleteContact:PropTypes.func.isRequired
 }
 
 export default ContactList;
